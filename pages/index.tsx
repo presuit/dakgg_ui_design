@@ -173,6 +173,15 @@ const Home: NextPage = () => {
     }
   }, [isMapleTopperOn, mapleTopperAnimation]);
 
+  // when language modal is open, then should not scroll page
+  useEffect(() => {
+    if (isLanguageDropdown) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isLanguageDropdown]);
+
   return (
     <Layout>
       <div
@@ -393,7 +402,7 @@ const Home: NextPage = () => {
                 style={{
                   backgroundImage: `url('https://mblogthumb-phinf.pstatic.net/MjAxODA3MTRfNzkg/MDAxNTMxNTUyMjM2NzM2.8GEC4kF2zI5zblfvanpBgsJFQOrISefFBYYAE0w5Pggg.rYo0Ftmh4D1h01ngN_zvIDtp8hQ96ziiXaTa5T0PKmwg.PNG.sosrudwk2/4013.png?type=w800')`,
                 }}
-                className="flex flex-1 bg-contain bg-center"
+                className="flex flex-1 bg-contain bg-center bg-no-repeat"
               ></div>
             </div>
             {/* 이터널 리턴 */}
@@ -402,7 +411,7 @@ const Home: NextPage = () => {
                 style={{
                   backgroundImage: `url('https://w.namu.la/s/e8033c0e34ab6aacdde70cc9485f8f201e43632a847c76d30cdc3103ea52b55c3c39eb5cb1c88bfde79266a5ecefdd6427a20e9d566a4a8538cbf54a53c936465c3403fae0c54efd4af659a37dc25ab6')`,
                 }}
-                className="flex-1 bg-contain bg-center"
+                className="flex-1 bg-contain bg-center bg-no-repeat"
               ></div>
               <div className="relative flex aspect-[1/1.2] w-2/3 flex-col items-center justify-center self-end overflow-hidden rounded-3xl shadow shadow-zinc-500 ring-zinc-500 ring-offset-4 ring-offset-slate-800 transition-all duration-200 hover:shadow-2xl hover:shadow-zinc-500 hover:ring-4">
                 {/* 이미지  */}
@@ -502,7 +511,7 @@ const Home: NextPage = () => {
             </motion.div>
           </div>
           {/* 에이펙스, 워존 */}
-          <div className="relative mt-20 flex w-full flex-col gap-10  overflow-hidden rounded-3xl bg-gradient-to-b from-pink-500 to-slate-300 p-5">
+          <div className="relative mt-20 flex w-full flex-col gap-10  overflow-hidden rounded-3xl bg-gradient-to-b from-pink-500 via-red-500 to-slate-800 p-5">
             {/* 컨텐츠 */}
             {/* 에이펙스 레전드 */}
             <div className="flex w-full gap-5">
@@ -522,7 +531,7 @@ const Home: NextPage = () => {
                 style={{
                   backgroundImage: `url('https://logos-world.net/wp-content/uploads/2020/11/Apex-Legends-Emblem.png')`,
                 }}
-                className="flex-1 bg-contain bg-center"
+                className="flex-1 bg-contain bg-center bg-no-repeat"
               ></div>
             </div>
             {/* 콜 오브 듀티:워존 */}
@@ -531,7 +540,7 @@ const Home: NextPage = () => {
                 style={{
                   backgroundImage: `url('https://pnggrid.com/wp-content/uploads/2021/11/Call-Of-Duty-Warzone-Logo.png')`,
                 }}
-                className="flex-1 bg-contain bg-center"
+                className="flex-1 bg-contain bg-center bg-no-repeat"
               ></div>
               <div className="relative flex aspect-[1/1.2] w-2/3 flex-col items-center justify-center self-end overflow-hidden rounded-3xl shadow shadow-black ring-black ring-offset-4 ring-offset-slate-800 transition-all duration-200 hover:shadow-2xl hover:shadow-black hover:ring-4">
                 {/* 이미지  */}
@@ -669,7 +678,7 @@ const Home: NextPage = () => {
                 style={{
                   backgroundImage: `url('https://w.namu.la/s/36698b408403528caa12752fe8592dbaefd5acd18a8b18dfaf758af4e1bd568d4edcc07614aa3a06682a3f24ccb4973dae1013e03169aaa14d50ca43a69d40e1e1d460d68b8d5320c365e65d0badea4a')`,
                 }}
-                className="flex-1 bg-contain bg-center"
+                className="flex-1 bg-contain bg-center bg-no-repeat"
               ></div>
             </div>
           </div>
