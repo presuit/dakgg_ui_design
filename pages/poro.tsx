@@ -306,7 +306,7 @@ const Poro: NextPage = () => {
           <div className="relative flex h-full w-full flex-col items-center gap-10">
             {/* top round icon */}
             <div className="w-10 rounded-full bg-zinc-700 p-1"></div>
-            <div className="grid h-20 w-full grid-cols-4 gap-3 ">
+            <div className="grid h-20 w-full grid-cols-4 gap-3 text-sm">
               <button className="flex h-full w-full items-center justify-center rounded-3xl bg-rose-500 ring-rose-500 ring-offset-4 ring-offset-black transition-all duration-300 hover:ring">
                 <span className="font-medium">홈</span>
               </button>
