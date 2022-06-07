@@ -1,34 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Dak.gg](http://Dak.gg) UI Design
 
-## Getting Started
+- 종합 전적 검색 사이트인 Dak.gg의 메인 페이지(https://dak.gg) 및 리그 오브 레전드 전적 검색 사이트인 포로지지(https://poro.gg) 페이지를 제 방식대로 UI를 디자인 하여 만들어 보았습니다.
+- 모바일 뷰에 최적화 되어 있기 때문에 모바일 뷰 혹은 브라우저 가로 크기를 최대한 줄여서 뷰포트를 만들어 주시면 최적의 상태로 감상할 수 있습니다.
 
-First, run the development server:
+## 구현한 기능
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+UI 디자인에 대해 구현하였기 때문에 실질적인 기능은 포함 되어 있지 않습니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+예를 들어 [dak.gg](http://dak.gg)에 있는 언어 변경 버튼을 클릭하면 한국어나 영어로 변경할 수 있지만, 제 프로젝트에선 이런 기능은 없이, UI와 애니메이션에 집중하였습니다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+각각의 페이지에서 구현한 기능에 대해 나열해 보자면,
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Dak.gg
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- 언어 변경 버튼과 해당 버튼을 클릭하면 한국어와 영어중 하나를 선택할 수 있음
+- 라이엇 게임(리그 오브 레전드, 전략적 팀 전투 TFT, 레전드 오브 룬테라, 발로란트)을 하나로 묶어 볼 수 있게 하였음.
+- FPS 서바이벌 게임들인 배틀 그라운드, 이터널 리턴, 에이펙스 레전드, 콜 오브 듀티:워존 을 2개씩 묶어 볼 수 있게 하였음.
+- 유일한 RPG 게임인 메이플스토리는 단독으로 묶어 볼 수 있게 하였음.
+- footer에 Dak.gg에 대한 정보들을 담았음.
+- 모든 컴포넌트에 애니메이션을 부여하여 유저가 좀 더 재미있게 사이트를 이용할 수 있도록 하였음.
 
-## Learn More
+### Poro.gg
 
-To learn more about Next.js, take a look at the following resources:
+- 포로지지 메인 페이지를 기반으로 디자인 하였음.
+- 소환사 협곡 티어
+- 칼바람 나락 티어
+- 전적 검색
+- 포로지지에 대한 정보
+- 포로지지 데스크톱앱
+- 챔피언 밸런싱
+- footer를 클릭하면 다른 Stage(소환사의 협곡, 칼바람 나락, 우르프)로 넘어갈 수 있는 버튼을 만들어 둠.
+- 모든 컴포넌트에 애니메이션을 부여하여 유저가 좀 더 재미있게 사이트를 이용할 수 있도록 하였음.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 사용한 기술 스택
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js, React
+  - Next.js는 React를 기반으로 하는 프레임워크입니다.
+  - React 라이브러리를 기반으로 움직이는 프레임워크이기 때문에 프론트엔드를 겨냥하고 만들어졌지만, 단순히 프론트엔드를 위한 것은 아니며, 내부적으로 api 통신이 가능한 백엔드 서버를 serverless 방식으로 구현할 수 있게 하여 풀스택 개발을 위한 프레임워크로도 사용될 수 있습니다.
+  - 프레임워크라는 특징상 프로젝트 구조가 이미 잡혀있는 상태이며, 기존의 React 프로젝트에서 따로 불러와서 사용해야 했던 라우팅(react-router-dom), HTML에서 head 태그를 컨트롤하는 방식(react-helmet) 등등을 이미 프레임워크 단계에서 구현해 두었기 때문에 Next.js의 규칙이나 내부적으로 가지고 있는 기능에 대해 잘 이해하고 있다면, React 라이브러리만을 가지고 직접 프로젝트를 시작하는 것 보다 더 빠르고 효율적이게 프로젝트를 수행할 수 있습니다.
+  - 협업의 과정에서도 Next.js의 기본적인 규칙들을 잘 숙지하고 있다면, 팀에 이제 막 합류한 개발자도 쉽게 프로젝트에 기여할 수 있게 됩니다.
+  - React에서 기존에 사용하던 방식대로 컴포넌트 내부에서 fetch나 다른 fetcher 라이브러리(React-Query, SWR)을 통해 백엔드와 연결하여 데이터를 가져와 해당 데이터를 가지고 렌더링을 진행했던 client-side-rendering 뿐만 아니라, 백엔드 서버에서 데이터를 fetch 해서 fetch 한 데이터를 바로 프론트엔드 파트로 보내주어 데이터를 프론트엔드에서 fetch 하여 로딩하고 있다는 표시를 렌더링할 필요 없이 바로 서버에서 넘어온 데이터를 렌더링하는 Server-Side-Rendering 기법을 지원하고 있습니다.
+  - 또한 SSR(Server-Side-Rendering) 말고도 Static HTML 파일을 프로젝트 빌드 타임에 미리 만들어 제공하는 SSG(Static-Site-Generation) 기법과 Static 파일이긴 한데, 빌드 타임에 만들어 지는 것이 아닌, 유저의 요청에 따라 Static 파일이 만들어져 로딩 타임 없이 유저에게 페이지가 제공 되는 ISR(Incremental Static Regeneration) 기법을 제공하여 개발자들에게 다양한 렌더링 옵션을 선택할 수 있게 하여 프로젝트 퍼포먼스면에서 이점을 취할 수 있도록 도와주고 있습니다.
+  - 기타 기능으로 페이지에 접속하기 전 미들웨어를 설치하여 유저의 로그인 정보나, 현재 접근하는 유저가 사람인지 봇인지를 판단할 수 있도록 할 수 있습니다.
+- Tailwindcss
+  - Tailwindcss는 다양한 css 가 들어있는 클래스들을 엄청 많이 생성하여 개발자들이 해당 클래스명을 가져다가 HTML 태그에 붙여 넣어주면 스타일이 적용이 되는 Utility-first CSS 프레임워크입니다.
+  - 예를 들어 p-5 라는 클래스명을 사용한 태그에는 padding: 1.25rem 이 적용 되는 방식입니다.
+  - Tailwindcss를 활용하면 직접 특정 컴포넌트를 위한 id나 className을 지어줄 필요 없이, 바로 Tailwindcss에서 지원하는 클래스들을 가져다 사용하면 쉽게 css 스타일링을 할 수 있기 때문에 혼자 개발하는 개발자에게도 엄청 유용하지만, 협업이 필요한 기업이나 팀 단위 프로젝트에서도 미리 Tailwindcss에서 제공하는 클래스를 사용하기 때문에 css 적용에 있어 서로 다른 개발자들이 하나의 프로젝트에 css 클래스명을 작성하는데 들이는 노력이나 커뮤니케이션을 줄일 수 있습니다.
+  - 내부적으로 ring, space-x, space-y, divide-x, divide-y, animate-spin 과 같은 helper 클래스들이 존재하여 쉽게 스타일을 만들어 낼 수 있습니다.
+  - 크기에 대한 단계도 Tailwindcss에서 지정한 단계가 존재하기 때문에 일관적인 스타일을 유지하는데 도움을 주며, 특정 상황에서 특정한 값이 필요하다면 Tailwindcss 3.0 버전에서 부터 지원하는 JIT(Just In Time) 기능을 통해 Tailwindcss 팀에서 지원하는 단계가 아닌 특정한 단계를 지정하여 사용할 수 있습니다.
+    - 예를 들어 p-5 는 padding:1.25rem 을 적용시키는 클래스였지만, 당장 필요한 패딩 값이 9999px 이라 가정한다면 이런 값은 Tailwindcss의 크기 단계에 존재하지 않습니다. 따라서 이런 상황에서 JIT의 기능을 통해 p-[9999px] 라고 사용한다면 Tailwindcss에서 알아서 패딩이 9999px 만큼 들어가는 클래스를 생성하여 해당 HTML 태그에 스타일을 주게 됩니다.
+  - hover, focus, active와 같은 pseudo selector에 대한 지원도 하고 있기 때문에 해당 selector 들과 함께 transition을 활용하면 사이트의 interactivity를 증가시키는데 도움을 줄 수 있습니다.
+  - Responsive Design 역시 sm:, md:, lg:, xl:, 2xl: 와 같이 다양한 뷰포트들을 미리 설정하여 지원하고 있으며, mobile 디자인을 우선시 하는 Tailwindcss 덕분에 모바일 ui를 먼저 스타일 하고, 추가로 위에서 언급한 키워드들을 사용하여 responsive design을 쉽게 구현할 수 있습니다.
+  - 이런 모든 이점들의 공통점은 개발자들이 프로젝트를 진행하면서 마주치게 되는 CSS적 어려움을 Tailwindcss가 어느정도 해결하며, 가이드라인을 제공하기 때문에 개발자들이 쉽게 css를 적용하고, 협업할 수 있다고 생각합니다.
+- Framer motion
+  - Framer는 figma 처럼 디자이너들이 사이트 UI를 빌드할 때 사용하는 툴입니다.
+  - 이 Framer 팀에서 리액트를 위한 애니메이션 라이브러리를 만들게 되었고, 그것이 Framer motion입니다.
+  - Framer motion은 리액트에 특화 된 애니메이션 라이브러리입니다.
+  - 특유의 motion.~~~로 시작하는 애니메이션을 적용시킬 수 있는 custom HTML 태그를 기반으로 내부에 시작 단계, 애니메이션 주는 단계, 사라지는 단계를 구분하여 애니메이션을 줄 수 있습니다.
+  - AnimatePresence 라는 컴포넌트를 통해 리액트에서 다음 rendering 때 사라지는 컴포넌트들의 사라지는 애니메이션을 지정할 수 있습니다.
+  - useAnimation 이란 hook 을 통해 개발자가 특정 상황에 특정 컴포넌트에 애니메이션을 부여할 수 있습니다.
+  - 애니메이션을 주는 방식에는 약간 러닝 커브가 있지만, 애니메이션 자체는 단순한 css이기 때문에 애니메이션을 주는 방식에 대해 이해하고 있다면, 애니메이션 자체는 어렵지 않게 구현할 수 있습니다.
+  - layout 이란 프롭을 통해 컴포넌트가 리렌더링 되면서 옆에 있는 컴포넌트가 사라지거나 추가 되어지는 것과 같은 레이아웃 적으로 변경 점이 생기면, 해당 트랜지션을 부드럽게 할 수 있습니다.
+  - layoutId 라는 프롭을 통해 동일한 layoutId를 부여 받은 2개의 컴포넌트에서 하나의 컴포넌트가 렌더링 된 상태에서 해당 컴포넌트가 사라지고, 다른쪽 컴포넌트가 렌더링 되면, 두 컴포넌트 사이의 트랜지션을 애니메이트 해줄 수 있습니다.
+  - Variants 라는 프롭을 통해 부모 컴포넌트에서 자식 컴포넌트로 애니메이션을 전파 시킬 수 있으며, 좀 더 코드적으로 깔끔하게 애니메이션을 관리할 수 있습니다.
+  - hover, focus 와 같은 상황에서 사용할 애니메이션을 정할 수 있으며(whileHover, whileFocus), 추가로 뷰포트에 걸리게 되었을 때(whileInView), 해당 컴포넌트를 드래그 중일 때(whileDrag)와 같은 단순하지 않은 상황도 쉽게 애니메이션을 할 수 있게끔 도와주는 속성들이 있습니다.
