@@ -2,12 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
-import {
-  AnimatePresence,
-  motion,
-  useAnimation,
-  useMotionValue,
-} from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 
 type LANGUAGE_TYPE = "KO" | "EN";
 const outerRoundRotateDegree = [
@@ -191,38 +186,41 @@ const Home: NextPage = () => {
         className="min-h-screen w-full bg-cover bg-center"
       >
         {/* dak.gg logo header */}
-        <header className="flex w-full items-center justify-between p-10 ">
-          {/* dak.gg logo */}
-          <Link href={"/"}>
-            <a>
-              <img
-                className="w-32 transform transition-all duration-200 hover:scale-110"
-                src="https://dak.gg/images/logo/img-dakgg-brandlogo.svg"
-                alt="dakggLogo"
-              />
-            </a>
-          </Link>
-          {/* dak.gg language radio button */}
-          <div
-            onClick={toggleLanguageDropdown}
-            className="group flex cursor-pointer items-center gap-1 rounded-md border p-2 px-3 text-sm text-white transition-all duration-200 hover:bg-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="aspect-square w-6 group-hover:stroke-black"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+        <div>
+          <header className="flex w-full items-center justify-between p-10 ">
+            {/* dak.gg logo */}
+            <Link href={"/"}>
+              <a>
+                <img
+                  className="w-32 transform transition-all duration-200 hover:scale-110"
+                  src="https://dak.gg/images/logo/img-dakgg-brandlogo.svg"
+                  alt="dakggLogo"
+                />
+              </a>
+            </Link>
+            {/* dak.gg language radio button */}
+            <div
+              onClick={toggleLanguageDropdown}
+              className="group flex cursor-pointer items-center gap-1 rounded-md border p-2 px-3 text-sm text-white transition-all duration-200 hover:bg-white"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-        </header>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="aspect-square w-6 group-hover:stroke-black"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+          </header>
+        </div>
+
         {/* dak.gg main */}
         <main className="w-full p-5 pb-20">
           {/* riot package */}

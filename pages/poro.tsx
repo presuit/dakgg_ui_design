@@ -3,6 +3,12 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import { AnimatePresence, motion, useAnimation, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
+import SummonersRiftTier from "../components/Poro/index/SummonersRiftTier";
+import AramTier from "../components/Poro/index/AramTier";
+import CircleInput from "../components/Poro/index/CircleInput";
+import PoroGGInfo from "../components/Poro/index/PoroGGInfo";
+import PoroGGDesktop from "../components/Poro/index/PoroGGDesktop";
+import PatchNote from "../components/Poro/index/PatchNote";
 
 const ContainerAnimate: Variants = {
   enter: { opacity: 0 },
@@ -29,16 +35,32 @@ const ItemAnimate: Variants = {
   },
 };
 
+enum ModalType {
+  CLASSIC_TIER,
+  ARAM_TIER,
+  SEARCH,
+  PORO_INFO,
+  DESKTOP_APP,
+  PATCH_NOTE,
+}
+
 const Poro: NextPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<ModalType | null>(null);
   const menuAnimation = useAnimation();
 
   useEffect(() => {
     if (isMenuOpen) {
-      menuAnimation.start({ y: 0 });
+      menuAnimation.start({
+        y: 0,
+        transition: { duration: 0.5, type: "tween" },
+      });
     } else {
-      menuAnimation.start({ y: "93%" });
+      menuAnimation.start({
+        y: "70%",
+        transition: { duration: 0.5, type: "tween" },
+      });
     }
   }, [isMenuOpen, menuAnimation]);
 
@@ -46,44 +68,19 @@ const Poro: NextPage = () => {
     <Layout>
       <div className="relative flex h-[100vh] w-full flex-col overflow-hidden">
         {/* header */}
-        <header className="flex  w-full items-center justify-between bg-slate-800 p-5 px-5 pb-0">
-          {isMenuOpen ? (
-            <div className="mr-10 flex-1">
-              <form className="relative w-full">
-                <input
-                  className="w-full rounded-md p-3 pr-10 text-sm font-medium outline-none"
-                  type={"text"}
-                  placeholder="소환사명 혹은 챔피언 이름"
-                />
-                <button className="absolute top-1/2 right-1 -translate-y-1/2 ">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="aspect-square w-8 stroke-red-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </button>
-              </form>
-            </div>
-          ) : (
-            <Link href={"/poro"}>
-              <a>
-                <img
-                  src="https://poro.gg/images/logo/logo-porogg-w-r.png"
-                  alt="poro.ggLogo"
-                />
-              </a>
-            </Link>
-          )}
-          <div className="rounded-ful aspect-square w-12 cursor-pointer grayscale hover:grayscale-0">
+        <header className="flex  w-full items-center justify-between bg-zinc-800 p-5 px-5 pb-0">
+          <Link href={"/poro"}>
+            <a>
+              <img
+                src="https://poro.gg/images/logo/logo-porogg-w-r.png"
+                alt="poro.ggLogo"
+              />
+            </a>
+          </Link>
+          <div
+            onClick={() => setIsMenuOpen(true)}
+            className="rounded-ful aspect-square w-12 cursor-pointer grayscale hover:grayscale-0"
+          >
             <img
               className="h-full w-full object-cover object-center"
               src="https://static-s.aa-cdn.net/img/gp/20600011369673/QOqlWNtzNVpFcxQHZPwtA4JvBcdXLAUXMM-XC0iiTIyRwkdxYXdSgqx63Jmf_C3UhSE=s300?v=1"
@@ -91,19 +88,19 @@ const Poro: NextPage = () => {
             />
           </div>
         </header>
-        <main className="relative flex-1 bg-slate-800 p-5 pb-20">
+        <main className="relative flex-1 bg-zinc-800 p-5 pb-20">
           {/* container */}
           <motion.div
             variants={ContainerAnimate}
             initial="enter"
             animate="animate"
-            className="grid h-full w-full grid-cols-2 grid-rows-4 gap-3 rounded-2xl bg-slate-900 p-5"
+            className="grid h-full w-full grid-cols-2 grid-rows-4 gap-3 rounded-2xl bg-zinc-900 p-5"
           >
             {/* 소환사협곡 티어 */}
             <motion.div variants={ItemAnimate}>
-              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-amber-300 ring-offset-4 ring-offset-slate-900 transition-all duration-200 hover:z-10 hover:shadow-2xl hover:shadow-amber-300 hover:ring">
+              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-amber-300 ring-offset-4 ring-offset-zinc-900 transition-all duration-200 hover:z-10 hover:shadow-2xl hover:shadow-amber-300 hover:ring">
                 {/* bg */}
-                <div className="absolute top-0 left-0 h-full w-full transform bg-slate-800 p-3 transition-all duration-500 group-hover:scale-110">
+                <div className="absolute top-0 left-0 h-full w-full transform bg-zinc-800 p-3 transition-all duration-500 group-hover:scale-110">
                   <div className="h-full w-full transform opacity-50">
                     <svg
                       className="h-full w-full fill-amber-300 opacity-50"
@@ -116,7 +113,10 @@ const Poro: NextPage = () => {
                 </div>
                 {/* content */}
                 <div
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setModalType(ModalType.CLASSIC_TIER);
+                    setIsModalOpen(true);
+                  }}
                   className="absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-center"
                 >
                   <span className="text-center text-lg font-bold text-white">
@@ -127,7 +127,7 @@ const Poro: NextPage = () => {
             </motion.div>
             {/* 칼바람나락 티어 */}
             <motion.div variants={ItemAnimate}>
-              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-blue-300 ring-offset-4 ring-offset-slate-900 transition-all duration-200 hover:shadow-2xl hover:shadow-blue-300 hover:ring">
+              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-blue-300 ring-offset-4 ring-offset-zinc-900 transition-all duration-200 hover:shadow-2xl hover:shadow-blue-300 hover:ring">
                 {/* bg */}
                 <div className="absolute top-0 left-0 h-full w-full transform bg-slate-800 p-3 transition-all duration-500 group-hover:scale-110">
                   <div className="h-full w-full transform opacity-50">
@@ -142,7 +142,10 @@ const Poro: NextPage = () => {
                 </div>
                 {/* content */}
                 <div
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setModalType(ModalType.ARAM_TIER);
+                    setIsModalOpen(true);
+                  }}
                   className="absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-center"
                 >
                   <span className="text-center text-lg font-bold text-white">
@@ -156,7 +159,7 @@ const Poro: NextPage = () => {
               className="col-span-2 h-full w-full"
               variants={ItemAnimate}
             >
-              <div className="group relative  h-full w-full  transform overflow-hidden rounded-2xl ring-rose-500 ring-offset-4 ring-offset-slate-900 transition-all duration-200 hover:shadow-2xl hover:shadow-rose-500 hover:ring">
+              <div className="group relative  h-full w-full  transform overflow-hidden rounded-2xl ring-rose-500 ring-offset-4 ring-offset-zinc-900 transition-all duration-200 hover:shadow-2xl hover:shadow-rose-500 hover:ring">
                 {/* poro red bg */}
                 <div className="absolute top-0 left-0 flex h-full w-full transform flex-wrap items-center justify-center gap-3 bg-rose-500 p-3 transition-all duration-500 group-hover:scale-110">
                   {Array.from(Array(200).keys()).map((_, i) => (
@@ -171,7 +174,10 @@ const Poro: NextPage = () => {
                 </div>
                 {/* content */}
                 <div
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setModalType(ModalType.SEARCH);
+                    setIsModalOpen(true);
+                  }}
                   className="absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-center"
                 >
                   <span className="text-center text-xl font-bold text-white">
@@ -182,9 +188,9 @@ const Poro: NextPage = () => {
             </motion.div>
             {/* PORO.GG */}
             <motion.div variants={ItemAnimate}>
-              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-slate-500 ring-offset-4 ring-offset-slate-900 transition-all duration-200 hover:shadow-2xl hover:shadow-slate-500 hover:ring">
+              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-zinc-500 ring-offset-4 ring-offset-zinc-900 transition-all duration-200 hover:shadow-2xl hover:shadow-zinc-500 hover:ring">
                 {/* bg */}
-                <div className="absolute top-0 left-0  h-full w-full  transform bg-slate-500 opacity-50 transition-all duration-500 group-hover:scale-110">
+                <div className="absolute top-0 left-0  h-full w-full  transform bg-zinc-500 opacity-50 transition-all duration-500 group-hover:scale-110">
                   <div
                     style={{
                       backgroundImage: `url('https://static-s.aa-cdn.net/img/gp/20600011369673/QOqlWNtzNVpFcxQHZPwtA4JvBcdXLAUXMM-XC0iiTIyRwkdxYXdSgqx63Jmf_C3UhSE=s300?v=1')`,
@@ -203,7 +209,10 @@ const Poro: NextPage = () => {
                 </div>
                 {/* content */}
                 <div
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setModalType(ModalType.PORO_INFO);
+                    setIsModalOpen(true);
+                  }}
                   className="absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-center"
                 >
                   <span className="text-center text-lg font-bold text-white">
@@ -214,7 +223,7 @@ const Poro: NextPage = () => {
             </motion.div>
             {/* DESKTOP_APP */}
             <motion.div variants={ItemAnimate}>
-              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-teal-500 ring-offset-4 ring-offset-slate-900 transition-all duration-200 hover:shadow-2xl hover:shadow-teal-500 hover:ring">
+              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-teal-500 ring-offset-4 ring-offset-zinc-900 transition-all duration-200 hover:shadow-2xl hover:shadow-teal-500 hover:ring">
                 {/* bg */}
                 <div className="absolute top-0 left-0 flex h-full w-full transform flex-wrap items-center  justify-center gap-3 bg-teal-500 p-3 transition-all duration-500 group-hover:scale-110">
                   {Array.from(Array(100).keys()).map((_, i) => (
@@ -229,7 +238,10 @@ const Poro: NextPage = () => {
                 </div>
                 {/* content */}
                 <div
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setModalType(ModalType.DESKTOP_APP);
+                    setIsModalOpen(true);
+                  }}
                   className="absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-center"
                 >
                   <span className="text-center text-lg font-bold text-white">
@@ -243,7 +255,7 @@ const Poro: NextPage = () => {
               className="col-span-2 h-full w-full"
               variants={ItemAnimate}
             >
-              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-black ring-offset-4 ring-offset-slate-900 transition-all duration-200 hover:shadow-2xl hover:shadow-black hover:ring">
+              <div className="group relative h-full w-full transform overflow-hidden rounded-2xl ring-black ring-offset-4 ring-offset-zinc-900 transition-all duration-200 hover:shadow-2xl hover:shadow-black hover:ring">
                 {/* bg */}
                 <div className="absolute top-0 left-0 flex h-full w-full transform flex-wrap items-center justify-center gap-3 bg-black p-3 transition-all duration-500 group-hover:scale-110">
                   {Array.from(Array(200).keys()).map((_, i) => (
@@ -270,7 +282,10 @@ const Poro: NextPage = () => {
                 </div>
                 {/* content */}
                 <div
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => {
+                    setModalType(ModalType.PATCH_NOTE);
+                    setIsModalOpen(true);
+                  }}
                   className="absolute top-0 left-0 flex h-full w-full cursor-pointer items-center justify-center"
                 >
                   <span className="text-center text-lg font-bold text-white">
@@ -283,15 +298,28 @@ const Poro: NextPage = () => {
         </main>
         {/* 맨 밑에 있는 스테이지 변경 드롭다운 */}
         <motion.aside
-          initial={{ y: "93%" }}
+          initial={{ y: "70%" }}
           onClick={() => setIsMenuOpen((prev) => !prev)}
           animate={menuAnimation}
-          transition={{ duration: 0.5, type: "tween" }}
-          className="absolute bottom-0 left-0 z-20 h-[90vh] w-full cursor-pointer bg-slate-900"
+          className="absolute bottom-0 left-0 z-20  w-full cursor-pointer bg-black p-5 pb-10"
         >
-          <div className="relative h-full w-full">
+          <div className="relative flex h-full w-full flex-col items-center gap-10">
             {/* top round icon */}
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 transform  rounded-full bg-slate-700 p-1 px-5"></div>
+            <div className="w-10 rounded-full bg-zinc-700 p-1"></div>
+            <div className="grid h-20 w-full grid-cols-4 gap-3 ">
+              <button className="flex h-full w-full items-center justify-center rounded-3xl bg-rose-500 ring-rose-500 ring-offset-4 ring-offset-black transition-all duration-300 hover:ring">
+                <span className="font-medium">홈</span>
+              </button>
+              <button className="flex h-full w-full items-center justify-center rounded-3xl bg-rose-500 ring-rose-500 ring-offset-4 ring-offset-black transition-all duration-300 hover:ring">
+                <span className="font-medium">소환사의 협곡</span>
+              </button>
+              <button className="flex h-full w-full items-center justify-center rounded-3xl bg-rose-500 ring-rose-500 ring-offset-4 ring-offset-black transition-all duration-300 hover:ring">
+                <span className="font-medium">칼바람 나락</span>
+              </button>
+              <button className="flex h-full w-full items-center justify-center rounded-3xl bg-rose-500 ring-rose-500 ring-offset-4 ring-offset-black transition-all duration-300 hover:ring">
+                <span className="font-medium">우르프</span>
+              </button>
+            </div>
           </div>
         </motion.aside>
         {/* universal modal */}
@@ -303,37 +331,160 @@ const Poro: NextPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,
-                  transition: { duration: 0.3, type: "tween" },
+                  transition: { duration: 0.5, type: "tween" },
                 }}
                 exit={{
                   opacity: 0,
-                  transition: { duration: 0.3, type: "tween", delay: 0.3 },
+                  transition: { duration: 0.5, type: "tween" },
                 }}
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-0 left-0 h-full w-full cursor-pointer bg-transparent backdrop-blur-sm"
               ></motion.div>
               {/* content */}
-              <motion.main
-                initial={{
-                  opacity: 0,
-                  x: "-50%",
-                  y: typeof window === undefined ? "-50%" : window.outerHeight,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: "-50%",
-                  transition: { duration: 1, type: "spring", delay: 0.3 },
-                }}
-                exit={{
-                  opacity: 0,
-                  y: typeof window === undefined ? "-50%" : window.outerHeight,
-                  transition: {
-                    duration: 1,
-                    type: "spring",
-                  },
-                }}
-                className="absolute top-1/2 left-1/2 w-[90%]  rounded-md bg-slate-100 p-5"
-              ></motion.main>
+              {modalType === ModalType.SEARCH ? (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    scale: 0,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0,
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  className="absolute top-1/2 left-1/2 flex w-[90%] transform flex-col rounded-md p-5"
+                >
+                  <CircleInput />
+                </motion.div>
+              ) : modalType === ModalType.PORO_INFO ? (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: 20,
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  className="absolute top-1/2 left-1/2 flex w-[90%] transform flex-col rounded-md p-5"
+                >
+                  <PoroGGInfo />
+                </motion.div>
+              ) : modalType === ModalType.DESKTOP_APP ? (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: 20,
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  className="absolute top-1/2 left-1/2 flex w-[90%] transform flex-col rounded-md p-5"
+                >
+                  <PoroGGDesktop />
+                </motion.div>
+              ) : modalType === ModalType.PATCH_NOTE ? (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: 20,
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  className="absolute top-1/2 left-1/2 flex w-[90%] transform flex-col rounded-md p-5"
+                >
+                  <PatchNote />
+                </motion.div>
+              ) : (
+                <motion.main
+                  initial={{
+                    opacity: 0,
+                    x: "-50%",
+                    y:
+                      typeof window === undefined ? "-50%" : window.outerHeight,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: "-50%",
+                    transition: { duration: 0.5, type: "tween" },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y:
+                      typeof window === undefined ? "-50%" : window.outerHeight,
+                    transition: {
+                      duration: 0.5,
+                      type: "tween",
+                    },
+                  }}
+                  className="absolute top-1/2 left-1/2 flex h-[90%] w-[90%]  flex-col overflow-auto rounded-md bg-gradient-to-b from-zinc-800 to-zinc-700"
+                >
+                  <header className="flex w-full items-center justify-between bg-zinc-800 p-3">
+                    <span className="text-lg font-medium text-white">
+                      {modalType === ModalType.CLASSIC_TIER
+                        ? "소환사 협곡 티어"
+                        : modalType === ModalType.ARAM_TIER
+                        ? "칼바람나락 티어"
+                        : ""}
+                    </span>
+                    <button
+                      onClick={() => setIsModalOpen(false)}
+                      className="rounded-full p-1 transition-all duration-200 hover:bg-zinc-900"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="aspect-square w-7 fill-white"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </header>
+                  {modalType === ModalType.CLASSIC_TIER && (
+                    <SummonersRiftTier />
+                  )}
+                  {modalType === ModalType.ARAM_TIER && <AramTier />}
+                </motion.main>
+              )}
             </motion.div>
           ) : null}
         </AnimatePresence>
