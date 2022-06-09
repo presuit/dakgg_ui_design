@@ -212,8 +212,8 @@ const SummonersRiftTier = () => {
               <path d="M0 0V11.09L2.82 8.27V2.82H8.27L11.09 0H0Z"></path>
               <path d="M13.18 7.73V13.18H7.73003L4.91003 16H16V4.91L13.18 7.73Z"></path>
               <path
-                className={`fill-rose-500 transition-all duration-300 ${
-                  position === Position.MID ? "fill-rose-100" : ""
+                className={` transition-all duration-300 ${
+                  position === Position.MID ? "fill-rose-100" : "fill-rose-500"
                 }`}
                 d="M13.37 0L0 13.37V16H2.63L16 2.63V0H13.37Z"
               ></path>
@@ -233,8 +233,8 @@ const SummonersRiftTier = () => {
             >
               <path d="M2.82 11.88L0 14.69V2.82V0H2.82H14.69L11.88 2.82H2.82V11.88Z"></path>
               <path
-                className={`fill-rose-500 transition-all duration-300 ${
-                  position === Position.BOT ? "fill-rose-100" : ""
+                className={`transition-all duration-300 ${
+                  position === Position.BOT ? "fill-rose-100" : "fill-rose-500"
                 }`}
                 d="M13.1801 4.13V13.18H4.13006L1.31006 16H13.1801H16.0001V13.18V1.31L13.1801 4.13Z"
               ></path>
@@ -390,8 +390,8 @@ const SummonersRiftTier = () => {
           >
             <path
               d="M2.82 11.88L0 14.69V2.82V0H2.82H14.69L11.88 2.82H2.82V11.88Z"
-              className={`fill-rose-500 transition-all duration-300 ${
-                position === Position.TOP ? "fill-rose-100" : ""
+              className={`transition-all duration-300 ${
+                position === Position.TOP ? "fill-rose-100" : "fill-rose-500"
               }`}
             ></path>
             <path
@@ -415,8 +415,8 @@ const SummonersRiftTier = () => {
             viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg"
             icon-lane=""
-            className={`aspect-square w-6 fill-rose-500 transition-all duration-300 ${
-              position === Position.JUNGLE ? "fill-rose-100" : ""
+            className={`aspect-square w-6  transition-all duration-300 ${
+              position === Position.JUNGLE ? "fill-rose-100" : "fill-rose-500"
             }`}
           >
             <path d="M3.54999 11.48C3.63717 10.1999 3.45533 8.91563 3.01614 7.71001C2.57696 6.5044 1.89017 5.40412 1 4.48C1 4.48 5 6.48 5.88 9.48C6.32637 6.16159 5.55546 2.7938 3.70999 -7.62939e-06C3.70999 -7.62939e-06 11.25 8.92999 8.22 16C6.97149 14.1962 5.38564 12.6512 3.54999 11.45V11.48ZM10.11 8.99999C9.87314 7.95564 9.49996 6.94699 9 5.99999C10.0703 3.83661 11.4147 1.82004 13 -7.62939e-06C13 -7.62939e-06 10.56 4.39999 10.78 7.63999C10.495 8.06022 10.2695 8.5179 10.11 8.99999ZM11 13C11 13 11.21 6.47999 16 3.99999C16 3.99999 13 7 13.5 10.74C13.5 10.74 11.37 12.14 11 13Z"></path>
@@ -438,8 +438,8 @@ const SummonersRiftTier = () => {
             <path d="M0 0V11.09L2.82 8.27V2.82H8.27L11.09 0H0Z"></path>
             <path d="M13.18 7.73V13.18H7.73003L4.91003 16H16V4.91L13.18 7.73Z"></path>
             <path
-              className={`fill-rose-500 transition-all duration-300 ${
-                position === Position.MID ? "fill-rose-100" : ""
+              className={` transition-all duration-300 ${
+                position === Position.MID ? "fill-rose-100" : "fill-rose-500"
               }`}
               d="M13.37 0L0 13.37V16H2.63L16 2.63V0H13.37Z"
             ></path>
@@ -460,8 +460,8 @@ const SummonersRiftTier = () => {
           >
             <path d="M2.82 11.88L0 14.69V2.82V0H2.82H14.69L11.88 2.82H2.82V11.88Z"></path>
             <path
-              className={`fill-rose-500 transition-all duration-300 ${
-                position === Position.BOT ? "fill-rose-100" : ""
+              className={` transition-all duration-300 ${
+                position === Position.BOT ? "fill-rose-100" : "fill-rose-500"
               }`}
               d="M13.1801 4.13V13.18H4.13006L1.31006 16H13.1801H16.0001V13.18V1.31L13.1801 4.13Z"
             ></path>
@@ -479,8 +479,8 @@ const SummonersRiftTier = () => {
             viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg"
             icon-lane=""
-            className={`aspect-square w-6 fill-rose-500 transition-all duration-300  ${
-              position === Position.SUP ? "fill-rose-100" : ""
+            className={`aspect-square w-6  transition-all duration-300  ${
+              position === Position.SUP ? "fill-rose-100" : "fill-rose-500"
             } `}
           >
             <path d="M8.08593 6.56L7.68164 6L6.06445 14.34L8.08593 16L10.1074 14.34L8.49023 6L8.08593 6.56Z"></path>
