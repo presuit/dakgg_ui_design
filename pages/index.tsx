@@ -183,7 +183,7 @@ const Home: NextPage = () => {
         style={{
           backgroundImage: `url('https://dak.gg/images/background/img-background.png')`,
         }}
-        className="min-h-screen w-full bg-cover bg-center"
+        className="min-h-screen w-full bg-black bg-cover bg-center"
       >
         {/* dak.gg logo header */}
         <div>
@@ -192,8 +192,9 @@ const Home: NextPage = () => {
             <Link href={"/"}>
               <a>
                 <img
-                  className="w-32 transform transition-all duration-200 hover:scale-110"
-                  src="https://dak.gg/images/logo/img-dakgg-brandlogo.svg"
+                  className="w-10 transform transition-all duration-200 hover:scale-110"
+                  // src="https://dak.gg/images/logo/img-dakgg-brandlogo.svg"
+                  src="https://cdn.dak.gg/portal/images/logo/logo-dak-symbol.svg"
                   alt="dakggLogo"
                 />
               </a>
@@ -337,7 +338,8 @@ const Home: NextPage = () => {
               <motion.div className="flex h-full w-full flex-col items-center rounded-3xl shadow shadow-teal-500 ring-teal-500 ring-offset-4 ring-offset-slate-800 transition-all duration-200 hover:shadow-2xl hover:shadow-teal-500 hover:ring">
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-lol.jpg')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-lol.jpg')`,
+                    backgroundImage: `url('https://cdn1.epicgames.com/offer/24b9b5e323bc40eea252a10cdd3b2f10/LoL_1200x1600-15ad6c981af8d98f50e833eac7843986')`,
                   }}
                   className="aspect-[1/1.2] w-full rounded-t-3xl bg-cover bg-center"
                 ></div>
@@ -348,7 +350,8 @@ const Home: NextPage = () => {
               <div className="flex h-full w-full flex-col items-center rounded-3xl shadow shadow-violet-500 ring-indigo-500 ring-offset-4 ring-offset-slate-800 transition-all duration-200 hover:shadow-2xl hover:shadow-indigo-500 hover:ring">
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-tft.jpg')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-tft.jpg')`,
+                    backgroundImage: `url('https://images.contentstack.io/v3/assets/blt76b5e73bfd1451ea/blte3151018e1db52fd/6387163013bca61092bd4831/tft-set-8-meta-image.jpg')`,
                   }}
                   className="aspect-[1/1.2] w-full rounded-t-3xl bg-cover bg-center"
                 ></div>
@@ -359,7 +362,8 @@ const Home: NextPage = () => {
               <div className="flex h-full w-full flex-col items-center rounded-3xl shadow shadow-indigo-500 ring-indigo-500 ring-offset-4 ring-offset-slate-800 transition-all duration-200 hover:shadow-2xl hover:shadow-indigo-500 hover:ring">
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-runeterra.jpg')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-runeterra.jpg')`,
+                    backgroundImage: `url('https://cdn1.epicgames.com/offer/4fb89e9f47fe48258314c366649c398e/offerupdated_2560x1440-6b52e19851cc812e9c23f2cddd84ac6e')`,
                   }}
                   className="aspect-[1/1.2] w-full rounded-t-3xl bg-cover bg-center"
                 ></div>
@@ -370,7 +374,8 @@ const Home: NextPage = () => {
               <div className="flex h-full w-full flex-col items-center rounded-3xl shadow shadow-rose-500 ring-rose-500 ring-offset-4 ring-offset-slate-800 transition-all  duration-200 hover:shadow-2xl hover:shadow-rose-500 hover:ring">
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-valorant.jpg')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-valorant.jpg')`,
+                    backgroundImage: `url('https://www.riotgames.com/darkroom/1440/d0807e131a84f2e42c7a303bda672789:3d02afa7e0bfb75f645d97467765b24c/valorant-offwhitelaunch-keyart.jpg')`,
                   }}
                   className="aspect-[1/1.2] w-full rounded-t-3xl bg-cover bg-center"
                 ></div>
@@ -388,7 +393,8 @@ const Home: NextPage = () => {
                 {/* 이미지  */}
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-pubg.jpg')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-pubg.jpg')`,
+                    backgroundImage: `url('https://res.heraldm.com/content/image/2022/01/14/20220114000254_0.jpg')`,
                   }}
                   className="w-full flex-1 bg-cover bg-center"
                 ></div>
@@ -415,7 +421,8 @@ const Home: NextPage = () => {
                 {/* 이미지  */}
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-bser.jpg?20211223')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-bser.jpg?20211223')`,
+                    backgroundImage: `url('https://m.media-amazon.com/images/M/MV5BYjhlNWYyMTMtOWM2Yy00MGIwLWEyZWEtMDg1MDZiMjFkNGJhXkEyXkFqcGdeQXVyMTIwODcyMzky._V1_.jpg')`,
                   }}
                   className="w-full flex-1 bg-cover bg-center"
                 ></div>
@@ -517,7 +524,8 @@ const Home: NextPage = () => {
                 {/* 이미지  */}
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-apex.jpg')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-apex.jpg')`,
+                    backgroundImage: `url('https://static.bhphotovideo.com/explora/sites/default/files/styles/960/public/ts-apex-legends-free-to-play-battle-royale_0.jpg?itok=lgBh9b3s')`,
                   }}
                   className="w-full flex-1 bg-cover bg-center"
                 ></div>
@@ -544,7 +552,8 @@ const Home: NextPage = () => {
                 {/* 이미지  */}
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-wz.jpg')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-wz.jpg')`,
+                    backgroundImage: `url('https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mw-wz/WZ-Season-Three-Announce-TOUT.jpg')`,
                   }}
                   className="w-full flex-1 bg-cover bg-center"
                 ></div>
@@ -664,7 +673,8 @@ const Home: NextPage = () => {
                 {/* 이미지  */}
                 <div
                   style={{
-                    backgroundImage: `url('https://dak.gg/images/services/bannerbig-maplestory.jpg')`,
+                    // backgroundImage: `url('https://dak.gg/images/services/bannerbig-maplestory.jpg')`,
+                    backgroundImage: `url('https://g.nexonstatic.com/maplestory/micro-site/static/landing/share_fb.jpeg')`,
                   }}
                   className="w-full flex-1 bg-cover bg-center"
                 ></div>
@@ -686,8 +696,9 @@ const Home: NextPage = () => {
           <Link href={"/"}>
             <a>
               <img
-                className="w-32 transform transition-all duration-200 hover:scale-110"
-                src="https://dak.gg/images/logo/img-dakgg-brandlogo.svg"
+                className="w-10 transform transition-all duration-200 hover:scale-110"
+                // src="https://dak.gg/images/logo/img-dakgg-brandlogo.svg"
+                src="https://cdn.dak.gg/portal/images/logo/logo-dak-symbol.svg"
                 alt="dakggLogo"
               />
             </a>
