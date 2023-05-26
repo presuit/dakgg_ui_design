@@ -14,7 +14,7 @@ const PoroGGDesktop = () => {
         </div>
       </div>
       <div className="flex w-full flex-col items-center gap-3 rounded-md bg-zinc-200 p-3">
-        <span className="text-center font-light">
+        <span className="text-center">
           포로지지 앱에서 칼바람, 우르프 룬을 자동으로 선택하세요!
         </span>
         <a
@@ -25,7 +25,8 @@ const PoroGGDesktop = () => {
         >
           <div
             style={{
-              backgroundImage: `url("https://poro.gg/_nuxt/img/img-ow-app.b98e16c.png")`,
+              // backgroundImage: `url("https://poro.gg/_nuxt/img/img-ow-app.b98e16c.png")`,
+              backgroundImage: `url("https://cdn.dak.gg/lol/images/img-ow-app.png")`,
             }}
             className="h-full w-full rounded-md bg-contain bg-center bg-no-repeat"
           ></div>
